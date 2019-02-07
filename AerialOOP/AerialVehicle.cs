@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AerialOOP
 {
-    abstract class AerialVehicle
+    public abstract class AerialVehicle
     {
         public int CurrentAltitude { get; set; }
 
-        protected Engine Engine { get; set; }
+        public Engine Engine { get; set; }
 
-        protected bool IsFlying { get; set; }
+        public bool IsFlying { get; set; }
 
-        protected int MaxAltitude { get; set; }
+        public int MaxAltitude { get; set; }
 
         //About this vehicle
         public virtual string About()
@@ -36,10 +36,7 @@ namespace AerialOOP
         //Fly down by a thousand
         public void FlyDown()
         {
-            if(CurrentAltitude>=1000 && IsFlying)
-            {
-                CurrentAltitude -= 1000;
-            }
+            FlyDown(1000);
         }
 
         //Fly down by specifed amount
@@ -55,10 +52,7 @@ namespace AerialOOP
         //Fly up by a thousand
         public void FlyUp()
         {
-            if (CurrentAltitude <= (MaxAltitude-1000) && IsFlying)
-            {
-                CurrentAltitude += 1000;
-            }
+            FlyUp(1000);
         }
 
         //Fly up by specified amount

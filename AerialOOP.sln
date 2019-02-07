@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AerialOOP", "AerialOOP\AerialOOP.csproj", "{8631F188-5028-4523-A4E4-453FC248DC01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingThingsTest", "FlyingThingsTest\FlyingThingsTest.csproj", "{77172627-8CE7-47F7-B77A-BE2F302C0058}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8631F188-5028-4523-A4E4-453FC248DC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8631F188-5028-4523-A4E4-453FC248DC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8631F188-5028-4523-A4E4-453FC248DC01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77172627-8CE7-47F7-B77A-BE2F302C0058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77172627-8CE7-47F7-B77A-BE2F302C0058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77172627-8CE7-47F7-B77A-BE2F302C0058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77172627-8CE7-47F7-B77A-BE2F302C0058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

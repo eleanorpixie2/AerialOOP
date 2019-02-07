@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AerialOOP
 {
-    class Airplane:AerialVehicle
+    public class Airplane:AerialVehicle
     {
         //constructor
         public Airplane()

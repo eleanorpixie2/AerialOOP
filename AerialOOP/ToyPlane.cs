@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AerialOOP
 {
-    class ToyPlane:Airplane
+    public class ToyPlane:Airplane
     {
         //Check to see if the toy is wound up or not
-        protected bool IsWoundUp;
+        public bool IsWoundUp;
 
         //constructor
         public ToyPlane()
@@ -29,7 +29,7 @@ namespace AerialOOP
         }
 
         //returns a string based on if the toy is wound up or not
-        protected string GetWindUpString()
+        public string GetWindUpString()
         {
             if (IsWoundUp)
             {
