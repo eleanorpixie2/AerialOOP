@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AerialOOP
 {
-    class Airport
+    public class Airport
     {
         protected int MaxVehicles;
         private List<AerialVehicle> Vehicles;
@@ -36,10 +36,21 @@ namespace AerialOOP
             if (Vehicles.Count > 0)
             {
                 string sTakeOff = "";
-                foreach (AerialVehicle a in Vehicles)
+                List<AerialVehicle> flyingVehicles = new List<AerialVehicle>();
+                foreach(AerialVehicle a in Vehicles)
                 {
-                    sTakeOff += "\n" + this.TakeOff(a);
+                    sTakeOff += "\n" + a.TakeOff();
+                    if (a.Engine.IsStarted)
+                    {
+                        flyingVehicles.Add(a);
+                    }
                 }
+                foreach(AerialVehicle a in flyingVehicles)
+                {
+                    Vehicles.Remove(a);
+                }
+
+                flyingVehicles.Clear();
                 return sTakeOff;
             }
             else
