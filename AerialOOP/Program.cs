@@ -14,6 +14,12 @@ namespace AerialOOP
             test.AirplaneTest();
             Console.WriteLine("\n==================================================================\n");
             test.ToyPlaneTest();
+            Console.WriteLine("\n==================================================================\n");
+            test.DroneTest();
+            Console.WriteLine("\n==================================================================\n");
+            test.HelicopterTest();
+            Console.WriteLine("\n==================================================================\n");
+            test.AirportTest();
             Console.Read();
         }
 
@@ -137,6 +143,158 @@ namespace AerialOOP
                 Console.WriteLine("\nCall StopEngine()");
                 plane.StopEngine();
                 Console.WriteLine(plane.About());
+
+            }
+
+            public void DroneTest()
+            {
+                //Start of the test
+                Console.WriteLine("\t\tFlying Vehicle Tester\n");
+                Console.WriteLine("\n\tDrone.cs\n");
+
+                //create airplane object and display its intial about
+                Drone plane = new Drone();
+                Console.WriteLine(plane.About());
+
+                //Attempt to make the plane take off
+                Console.WriteLine("\n\tTakeOffTest\n");
+                Console.WriteLine("Call TakeOff()\n" + plane.TakeOff());
+
+                //start the engine and try again
+                Console.WriteLine("\nCall StartEngine()");
+                plane.StartEngine();
+                Console.WriteLine("\nCall TakeOff()\n" + plane.TakeOff());
+
+                //Try to make the plane fly up
+                Console.WriteLine("\n\tFlyUpTest");
+                //Make the plane go up a thousand feet
+                Console.WriteLine("\nCall FlyUp() fly is 1000ft default");
+                plane.FlyUp();
+                Console.WriteLine(plane.About());
+
+                //Make the plane go above its max
+                Console.WriteLine("\nCall FlyUp(300) fly up to 300ft");
+                plane.FlyUp(300);
+                Console.WriteLine(plane.About());
+
+                //make the plane go to its max altitude
+                Console.WriteLine("\nCall FlyUp(200) fly to max altitude");
+                plane.FlyUp(200);
+                Console.WriteLine(plane.About());
+
+                //Try to make the plane fly down
+                Console.WriteLine("\n\tFly Down Test");
+
+                //Try to make the plane fly down more than its current altitude 
+                Console.WriteLine("\nCall FlyDown(50000) Fly Down 50,000ft");
+                plane.FlyDown(50000);
+                Console.WriteLine(plane.About());
+
+                //Try to make the plane fly down to 0
+                Console.WriteLine("\nCall FlyDown(CurrentAltitude) this should land");
+                plane.FlyDown(plane.CurrentAltitude);
+                Console.WriteLine(plane.About());
+
+                //Stop the Engine
+                Console.WriteLine("\nCall StopEngine()");
+                plane.StopEngine();
+                Console.WriteLine(plane.About());
+
+            }
+
+            public void HelicopterTest()
+            {
+                //Start of the test
+                Console.WriteLine("\t\tFlying Vehicle Tester\n");
+                Console.WriteLine("\n\tHelicopter.cs\n");
+
+                //create airplane object and display its intial about
+                Helicopter plane = new Helicopter();
+                Console.WriteLine(plane.About());
+
+                //Attempt to make the plane take off
+                Console.WriteLine("\n\tTakeOffTest\n");
+                Console.WriteLine("Call TakeOff()\n" + plane.TakeOff());
+
+                //start the engine and try again
+                Console.WriteLine("\nCall StartEngine()");
+                plane.StartEngine();
+                Console.WriteLine("\nCall TakeOff()\n" + plane.TakeOff());
+
+                //Try to make the plane fly up
+                Console.WriteLine("\n\tFlyUpTest");
+                //Make the plane go up a thousand feet
+                Console.WriteLine("\nCall FlyUp() fly is 1000ft default");
+                plane.FlyUp();
+                Console.WriteLine(plane.About());
+
+                //Make the plane go above its max
+                Console.WriteLine("\nCall FlyUp(3500) fly up to 4500ft");
+                plane.FlyUp(3500);
+                Console.WriteLine(plane.About());
+
+                //make the plane go to its max altitude
+                Console.WriteLine("\nCall FlyUp(3500) fly to max altitude");
+                plane.FlyUp(3500);
+                Console.WriteLine(plane.About());
+
+                //Try to make the plane fly down
+                Console.WriteLine("\n\tFly Down Test");
+
+                //Try to make the plane fly down more than its current altitude 
+                Console.WriteLine("\nCall FlyDown(50000) Fly Down 50,000ft");
+                plane.FlyDown(50000);
+                Console.WriteLine(plane.About());
+
+                //Try to make the plane fly down to 0
+                Console.WriteLine("\nCall FlyDown(CurrentAltitude) this should land");
+                plane.FlyDown(plane.CurrentAltitude);
+                Console.WriteLine(plane.About());
+
+                //Stop the Engine
+                Console.WriteLine("\nCall StopEngine()");
+                plane.StopEngine();
+                Console.WriteLine(plane.About());
+
+            }
+
+            public void AirportTest()
+            {
+                //Start of the test
+                Console.WriteLine("\t\tFlying Vehicle Tester\n");
+                Console.WriteLine("\n\tAirport.cs\n");
+
+                //create aerial vehicles and a airport object
+                Helicopter plane = new Helicopter();
+                Drone drone = new Drone();
+                Airplane airplane = new Airplane();
+                Airport port = new Airport(Guid.NewGuid().ToString(),2);
+                List<AerialVehicle> vehicles = new List<AerialVehicle>()
+                { drone, airplane };
+
+                //Attempt to make the plane(s) take off
+                Console.WriteLine("\n\tTakeOffTest\n");
+                Console.WriteLine("Call TakeOff()\n" + port.TakeOff(plane));
+
+                //Attempt to make all planes take off
+                Console.WriteLine("\nCall AllTakeOff()\n" + port.AllTakeOff());
+
+                //Try to make the plane(s) land at the airport
+                Console.WriteLine("\n\tLandTest");
+                //Make the plane land at the airport
+                Console.WriteLine("\nCall Land(a) to land a single vehicle");
+                Console.WriteLine(port.Land(plane));
+
+                //Try to make the planes land at the airport
+                Console.WriteLine("\nCall Land(List<AerialVehicle>) to land multiple vehicles");
+                Console.WriteLine(port.Land(vehicles));
+
+                // Attempt to make the plane(s) take off
+                Console.WriteLine("\n\tTakeOffTest\n");
+                Console.WriteLine("Call TakeOff()\n" + port.TakeOff(plane));
+
+                //Attempt to make all planes take off
+                Console.WriteLine("\nCall AllTakeOff()\n" + port.AllTakeOff());
 
             }
         }
