@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AerialOOP
 {
-    abstract class AerialVehicle
+    public abstract class AerialVehicle
     {
         public int CurrentAltitude { get; set; }
 
-        protected Engine Engine { get; set; }
+        public Engine Engine { get; set; }
 
-        protected bool IsFlying { get; set; }
+        public bool IsFlying { get; set; }
 
         protected int MaxAltitude { get; set; }
 
