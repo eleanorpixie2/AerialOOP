@@ -30,16 +30,31 @@ namespace AerialOOP
             this.MaxVehicles = MaxVehicles;
         }
 
-        //Try to make all the vehicles take off
         public string AllTakeOff()
         {
             if (Vehicles.Count > 0)
             {
                 string sTakeOff = "";
+                //List of vehicles that have left the airport
+                List<AerialVehicle> flyingVehicles = new List<AerialVehicle>();
+                //Try to take off
                 foreach (AerialVehicle a in Vehicles)
                 {
-                    sTakeOff += "\n" + this.TakeOff(a);
+                    sTakeOff += "\n" + a.TakeOff();
+                    if (a.Engine.IsStarted)
+                    {
+                        flyingVehicles.Add(a);
+                    }
                 }
+                //Remove the vehicles that could take off
+                foreach (AerialVehicle a in flyingVehicles)
+                {
+                    Vehicles.Remove(a);
+                }
+                //clear take off list
+                flyingVehicles.Clear();
+
+                //return string
                 return sTakeOff;
             }
             else
